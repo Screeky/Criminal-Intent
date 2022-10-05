@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/crimeListFragment">
+
+    <fragment
+        android:id="@+id/crimeListFragment"
+        android:name="ru.mephi.criminalintent.CrimeListFragment"
+        android:label="List of crimes">
+        <action
+            android:id="@+id/action_crimeListFragment_to_crimeFragment"
+            app:destination="@id/crimeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/crimeFragment"
+        android:name="ru.mephi.criminalintent.CrimeFragment"
+        android:label="Crime" >
+        <argument
+            android:name="crimeId"
+            app:argType="java.util.UUID"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_crimeFragment_to_datePickerFragment"
+            app:destination="@id/datePickerFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/datePickerFragment"
+        android:name="ru.mephi.criminalintent.DatePickerFragment"
+        android:label="DatePickerFragment" >
+        <argument
+            android:name="date"
+            app:argType="java.util.Date" />
+    </dialog>
+</navigation>
