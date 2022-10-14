@@ -1,18 +1,18 @@
 package ru.mephi.criminalintent
 
 
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
+
+private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity()/*, CrimeListFragment.Callbacks*/ {
 
@@ -30,19 +30,7 @@ class MainActivity : AppCompatActivity()/*, CrimeListFragment.Callbacks*/ {
         val builder = AppBarConfiguration.Builder(navController.graph)
         val appBarConfiguration = builder.build()
         toolbar.setupWithNavController(navController, appBarConfiguration)
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.crimeFragment) {
-                toolbar.visibility = View.GONE
-                state = false
-                invalidateOptionsMenu()
-                toolbar.jumpDrawablesToCurrentState()
-            } else {
-                toolbar.visibility = View.VISIBLE
-                state = true
-                invalidateOptionsMenu()
 
-            }
-        }
 
         /*val currentFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
         if (currentFragment == null) {
@@ -62,7 +50,6 @@ class MainActivity : AppCompatActivity()/*, CrimeListFragment.Callbacks*/ {
             .addToBackStack(null)
             .commit()
     }*/
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_activity, menu)

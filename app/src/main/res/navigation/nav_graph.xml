@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/crimeListFragment">
 
     <fragment
         android:id="@+id/crimeListFragment"
         android:name="ru.mephi.criminalintent.CrimeListFragment"
-        android:label="List of crimes">
+        android:label="@string/list_of_crimes">
         <action
             android:id="@+id/action_crimeListFragment_to_crimeFragment"
             app:destination="@id/crimeFragment" />
@@ -15,15 +16,18 @@
     <fragment
         android:id="@+id/crimeFragment"
         android:name="ru.mephi.criminalintent.CrimeFragment"
-        android:label="Crime" >
+        android:label="@string/crime">
         <argument
             android:name="crimeId"
+            android:defaultValue="@null"
             app:argType="java.util.UUID"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
         <action
             android:id="@+id/action_crimeFragment_to_datePickerFragment"
             app:destination="@id/datePickerFragment" />
+        <action
+            android:id="@+id/action_crimeFragment_to_pictureDialog"
+            app:destination="@id/pictureDialog" />
     </fragment>
     <dialog
         android:id="@+id/datePickerFragment"
@@ -32,5 +36,13 @@
         <argument
             android:name="date"
             app:argType="java.util.Date" />
+    </dialog>
+    <dialog
+        android:id="@+id/pictureDialog"
+        android:name="ru.mephi.criminalintent.PictureDialog"
+        android:label="PictureDialog" >
+        <argument
+            android:name="photoFile"
+            app:argType="java.io.File" />
     </dialog>
 </navigation>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="crime_title_hint">Введите заголовок преступления.</string>
+	<string name="crime_title_label">Заголовок</string>
+	<string name="crime_details_label">Детали</string>
+	<string name="crime_solved_label">Раскрыто</string>
+	<string name="crime_date">Дата преступления</string>
+	<string name="crime_title">Заголовок преступления</string>
+	<string name="call_the_police">Вызвать полицию</string>
+	<string name="required_police">Необходим вызов полиции</string>
+	<string name="new_crime">Новое преступление</string>
+	<string name="crime_suspect_text">Выберите подозреваемого</string>
+	<string name="crime_report_text">Отправить отчет о преступлении</string>
+	<string name="call">Позвонить подозреваемому</string>
+	<string name="crime_report">"%1$s!         Преступление было обнаружено в %2$s. %3$s, и %4$s "</string>
+	<string name="crime_report_solved">Преступление раскрыто</string>
+	<string name="crime_report_unsolved">Преступление не раскрыто</string>
+	<string name="crime_report_suspect">подозреваемый %s.</string>
+	<string name="send_report">Отправить отчет о преступлении через</string>
+	<string name="crime_report_no_suspect">нет подозреваемого.</string>
+	<string name="crime_report_subject">CriminalIntent отчет о преступлении</string>
+	<string name="call_suspect">Звонок подозреваемому</string>
+	<string name="permision_denied">Разрешение отклонено</string>
+	<string name="photo_not_taken">Фото не было сделано</string>
+	<string name="app_name">Список преступлений</string>
+	<string name="list_of_crimes">Список преступлений</string>
+	<string name="crime">Преступление</string>
+	<string name="crime_date_btn">Дата преступления</string>
+	<string name="crime_photo_button_description">Сделать фото преступления</string>
+	<string name="crime_photo_no_image_description">Фото места преступления (не задана)</string>
+	<string name="crime_photo_image_description">Фото места преступления (задана)</string>
+	<string name="the_list_of_crimes_is_empty">Список преступлений пуст</string>
+	<string name="add_crime">Добавить преступление</string>
+	<string name="crime_was_solved">Дело раскрыто</string>
+</resources>

@@ -42,6 +42,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_solved" />
+        app:srcCompat="@mipmap/ic_solved"
+        android:contentDescription="@string/crime_was_solved" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

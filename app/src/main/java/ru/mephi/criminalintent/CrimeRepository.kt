@@ -1,10 +1,13 @@
 package ru.mephi.criminalintent
 
 import android.content.Context
+import android.os.Environment
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import ru.mephi.criminalintent.database.CrimeDatabase
 import ru.mephi.criminalintent.database.migration_1_2
+import java.io.File
 import java.util.*
 import java.util.concurrent.Executors
 
@@ -21,6 +24,7 @@ class CrimeRepository private constructor (context: Context) {
 
     private val crimeDao = database.crimeDao()
     private val executor = Executors.newSingleThreadExecutor()
+    private val filesDir = File(context.applicationContext.filesDir.absolutePath, "/images")
 
     fun getCrimes(): LiveData<List<Crime>> = crimeDao.getCrimes()
     fun getCrime(id: UUID): LiveData<Crime?> = crimeDao.getCrime(id)
@@ -33,6 +37,11 @@ class CrimeRepository private constructor (context: Context) {
         executor.execute {
             crimeDao.addCrime(crime)
         }
+    }
+    fun getPhotoFile(crime: Crime): File {
+        if (!filesDir.exists())
+            filesDir.mkdir()
+        return File(filesDir, crime.photoFileName)
     }
 
     companion object {

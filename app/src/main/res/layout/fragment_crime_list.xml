@@ -14,8 +14,8 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
 		android:layout_marginBottom="100dp"
-		android:visibility="gone"
-		android:text="The list of crimes is empty"/>
+		android:visibility="visible"
+		android:text="@string/the_list_of_crimes_is_empty"/>
 
 	<Button
 		android:id="@+id/add_button"
@@ -24,8 +24,8 @@
 		app:layout_constraintTop_toBottomOf="@id/empty_list"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
-		android:visibility="gone"
-		android:text="add crime"/>
+		android:visibility="visible"
+		android:text="@string/add_crime"/>
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/crime_recycler_view"

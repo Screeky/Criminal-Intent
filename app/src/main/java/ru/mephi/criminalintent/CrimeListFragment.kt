@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import org.intellij.lang.annotations.Language
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -57,25 +58,21 @@ class CrimeListFragment: Fragment() {
             crimes?.let {
                 Log.i(TAG, "Got crimes ${crimes.size}")
                 updateUI(crimes)
-                if (crimes.isNotEmpty()) {
-                    addButton.visibility = View.GONE
-                    emptyText.visibility = View.GONE
-                }
             }
         }
     }
 
     private fun updateUI(crimes: List<Crime>){
         adapter.submitList(crimes)
-        if (adapter.itemCount == 0){
-            addButton.visibility = View.VISIBLE
-            emptyText.visibility = View.VISIBLE
+        if (crimes.isNotEmpty()) {
+            addButton.visibility = View.GONE
+            emptyText.visibility = View.GONE
+        }
             addButton.setOnClickListener{
                 val action = CrimeListFragmentDirections
                     .actionCrimeListFragmentToCrimeFragment()
                 it.findNavController().navigate(action)
             }
-        }
     }
 
     private abstract inner class CrimeHolder(view: View)
@@ -90,7 +87,7 @@ class CrimeListFragment: Fragment() {
         open fun bind (crime: Crime) {
             this.crime = crime
             titleTextView.text = this.crime.title
-            dateTextView.text = SimpleDateFormat("EEEE, MMM dd, yyyy", Locale.ENGLISH).format(this.crime.date)
+            dateTextView.text = SimpleDateFormat("EEEE, MMM dd, yyyy", Locale.getDefault()).format(this.crime.date)
             solvedImageView.visibility = if (crime.isSolved){
                 View.VISIBLE
             } else {
@@ -177,9 +174,5 @@ class CrimeListFragment: Fragment() {
     override fun onStop() {
         super.onStop()
         Log.i(TAG, "on Stop called")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }
